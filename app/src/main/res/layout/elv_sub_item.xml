@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/biryani"
+        android:textStyle="normal"
+        android:textSize="14sp"
+        android:textColor="#191f5d"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Episode Name (S1 - E1)"/>
+
+</RelativeLayout>

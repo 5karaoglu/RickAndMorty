@@ -1,9 +1,11 @@
 package com.besirkaraoglu.rickandmorty.data.remote
 
 import android.net.Uri
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.besirkaraoglu.rickandmorty.data.remote.model.characters.Character
+import com.besirkaraoglu.rickandmorty.data.remote.model.characters.CharactersResponse
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
@@ -23,9 +25,13 @@ class CharactersPagingSource
         val currentPage = params.key ?: 1
         return try {
             val response = webService.getAllCharacters(currentPage)
+            Log.d("TAG", "load: ${response.body()}")
+            Log.d("TAG", "load: ${response.raw()}")
+
             val body = response.body()
             val info = body?.info
-            val characters = body?.characters
+            val characters = body?.results
+            Log.d("TAG", "load: $body")
 
             var nextPage : Int? = null
             if (info?.next != null){

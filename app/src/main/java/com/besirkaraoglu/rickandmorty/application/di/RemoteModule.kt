@@ -1,6 +1,9 @@
 package com.besirkaraoglu.rickandmorty.application.di
 
 import com.besirkaraoglu.rickandmorty.data.remote.WebService
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,12 +32,21 @@ object RemoteModule {
             .build()
     }
 
+    @Provides
+    @Singleton
+    fun provideGson(): Gson =
+        GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
+            .serializeNulls()
+            .setLenient()
+            .create()
+
     @Singleton
     @Provides
-    fun provideRetrofit(client: OkHttpClient) = Retrofit.Builder()
+    fun provideRetrofit(gson: Gson,client: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
     @Singleton

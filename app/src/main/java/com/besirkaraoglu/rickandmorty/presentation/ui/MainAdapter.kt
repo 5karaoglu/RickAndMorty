@@ -1,5 +1,6 @@
 package com.besirkaraoglu.rickandmorty.presentation.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -8,6 +9,7 @@ import com.besirkaraoglu.rickandmorty.R
 import com.besirkaraoglu.rickandmorty.data.remote.model.characters.Character
 import com.besirkaraoglu.rickandmorty.databinding.CharacterSingleItemBinding
 import com.besirkaraoglu.rickandmorty.util.BaseViewHolder
+import com.besirkaraoglu.rickandmorty.util.loadWithPicasso
 import com.squareup.picasso.Picasso
 
 class MainAdapter(
@@ -22,11 +24,7 @@ class MainAdapter(
     ): BaseViewHolder<Character>(binding.root) {
         override fun bind(item: Character) {
            with(binding){
-               Picasso.get()
-                   .load(item.image)
-                   .error(R.drawable.ic_launcher_foreground)
-                   .fit().centerInside()
-                   .into(iv)
+               iv.loadWithPicasso(item.image)
 
                tv.text = item.name
 

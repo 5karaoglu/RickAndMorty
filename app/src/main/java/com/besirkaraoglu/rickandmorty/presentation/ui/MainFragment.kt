@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.besirkaraoglu.rickandmorty.R
 import com.besirkaraoglu.rickandmorty.data.remote.model.characters.Character
@@ -52,6 +53,10 @@ MainAdapter.ClickListener{
             layoutManager = GridLayoutManager(requireContext(),2)
             addItemDecoration(GridItemDecoration(DEFAULT_MARGIN))
         }
+        pagingAdapter.withLoadStateHeaderAndFooter(
+            header = CharacterLoadStateAdapter(pagingAdapter::retry),
+            footer = CharacterLoadStateAdapter(pagingAdapter::retry)
+        )
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.characters.collectLatest {
@@ -62,6 +67,7 @@ MainAdapter.ClickListener{
     }
 
     override fun itemClicked(item: Character) {
-
+       val action = MainFragmentDirections.actionMainFragmentToCharacterDetailFragment(item)
+       findNavController().navigate(action)
     }
 }

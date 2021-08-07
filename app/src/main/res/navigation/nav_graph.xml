@@ -10,5 +10,18 @@
         android:id="@+id/mainFragment"
         android:name="com.besirkaraoglu.rickandmorty.presentation.ui.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.besirkaraoglu.rickandmorty.presentation.ui.CharacterDetailFragment"
+        android:label="fragment_character_detail"
+        tools:layout="@layout/fragment_character_detail" >
+        <argument
+            android:name="Character"
+            app:argType="com.besirkaraoglu.rickandmorty.data.remote.model.characters.Character" />
+    </fragment>
 </navigation>

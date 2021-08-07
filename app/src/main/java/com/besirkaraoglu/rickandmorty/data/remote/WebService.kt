@@ -8,7 +8,7 @@ import retrofit2.http.Query
 const val PAGE_QUERY = "page"
 interface WebService {
 
-    @GET("character")
+    @GET("character/")
     suspend fun getAllCharacters(
         @Query(PAGE_QUERY) page: Int
     ):Response<CharactersResponse>
