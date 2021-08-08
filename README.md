@@ -1,5 +1,5 @@
 # RickAndMorty
-<br>
+
 <img align="right"  src="https://user-images.githubusercontent.com/50145106/128644245-4fc625e0-31a5-4845-a5c7-eb84097d2a49.gif">
 
 ### This app contains:<br>
