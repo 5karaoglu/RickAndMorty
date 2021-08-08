@@ -3,72 +3,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.CharacterDetailFragment">
+    tools:context=".presentation.ui.characterdetail.CharacterDetailFragment">
 
     <Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:layout_alignParentTop="true"
+        android:layout_height="45dp"
         android:layout_alignParentStart="true"
-        android:navigationIcon="@drawable/ic_round_close_24"/>
+        android:layout_alignParentTop="true"
+        android:navigationIcon="@drawable/ic_round_close_24" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvName"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:textColor="#191f5d"
-        android:text="Character Name"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginStart="20dp"/>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/iv"
-        android:layout_below="@id/tvName"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="28dp"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/tvSituation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/iv"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="9dp"
-        android:layout_toEndOf="@+id/iv"
-        android:lineSpacingExtra="10sp"
-        android:text="Alive, Human"
-        android:textColor="#191f5d"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvSituation"
-        android:layout_marginStart="9dp"
-        android:layout_toEndOf="@id/iv"
-        android:lineSpacingExtra="14sp"
-        android:textColor="#191f5d"
-        android:textSize="14sp"
-        android:layout_marginTop="6dp"
-        android:textStyle="bold"
-        tools:text="Male" />
-
-    <ExpandableListView
+    <RelativeLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/expandableListView"
-        android:layout_below="@id/iv"
-        tools:listitem="@layout/elv_item" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/loading">
+        <include layout="@layout/fragment_character_detail_shimmer" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/success">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvName"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="#191f5d"
+            android:text="Character Name"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/iv"
+            android:layout_below="@id/tvName"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="28dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tvSituation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_toEndOf="@+id/iv"
+            android:lineSpacingExtra="10sp"
+            android:text="Alive, Human"
+            android:textColor="#191f5d"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSituation"
+            android:layout_marginStart="9dp"
+            android:layout_toEndOf="@id/iv"
+            android:lineSpacingExtra="14sp"
+            android:textColor="#191f5d"
+            android:textSize="14sp"
+            android:layout_marginTop="6dp"
+            android:textStyle="bold"
+            tools:text="Male" />
+
+        <ExpandableListView
+            android:animateLayoutChanges="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/expandableListView"
+            android:layout_below="@id/iv"
+            tools:listitem="@layout/elv_item"
+            android:groupIndicator="@null"
+            />
+    </RelativeLayout>
 
 
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.ui.characterdetail.CharacterDetailFragment"
+    app:shimmer_auto_start="true">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvNameSh"
+        android:layout_width="300dp"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/shimmer_placeholder"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivSh"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/tvNameSh"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="28dp"
+        android:src="@color/shimmer_placeholder" />
+
+    <TextView
+        android:id="@+id/tvSituationSh"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/ivSh"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_toEndOf="@+id/ivSh"
+        android:lineSpacingExtra="10sp"
+        android:background="@color/shimmer_placeholder"
+        android:textColor="#191f5d"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvGenderSh"
+        android:layout_width="100dp"
+        android:layout_height="17dp"
+        android:layout_below="@+id/tvSituationSh"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="6dp"
+        android:layout_toEndOf="@id/ivSh"
+        android:lineSpacingExtra="14sp"
+        android:background="@color/shimmer_placeholder"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        />
+
+</RelativeLayout>
+
+</com.facebook.shimmer.ShimmerFrameLayout>

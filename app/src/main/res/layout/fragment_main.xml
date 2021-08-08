@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.MainFragment">
+    tools:context=".presentation.ui.main.MainFragment"
+    android:background="#f6f7fc">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="45dp"
         android:id="@+id/toolbar"/>
 
     <TextView

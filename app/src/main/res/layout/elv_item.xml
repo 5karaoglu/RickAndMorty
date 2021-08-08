@@ -16,4 +16,14 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="14dp"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/group_indicator"
+        android:id="@+id/indicator"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"/>
+
 </RelativeLayout>

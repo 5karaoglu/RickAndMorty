@@ -1,5 +1,6 @@
 package com.besirkaraoglu.rickandmorty.application.di
 
+import com.besirkaraoglu.rickandmorty.application.BASE_URL
 import com.besirkaraoglu.rickandmorty.data.remote.WebService
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
@@ -16,7 +17,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-const val BASE_URL = "https://rickandmortyapi.com/api/"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -51,5 +51,5 @@ object RemoteModule {
 
     @Singleton
     @Provides
-    fun provideWebService(retrofit: Retrofit) = retrofit.create(WebService::class.java)
+    fun provideWebService(retrofit: Retrofit): WebService = retrofit.create(WebService::class.java)
 }

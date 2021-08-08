@@ -8,20 +8,24 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.besirkaraoglu.rickandmorty.presentation.ui.MainFragment"
+        android:name="com.besirkaraoglu.rickandmorty.presentation.ui.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_characterDetailFragment"
-            app:destination="@id/characterDetailFragment" />
+            app:destination="@id/characterDetailFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/characterDetailFragment"
-        android:name="com.besirkaraoglu.rickandmorty.presentation.ui.CharacterDetailFragment"
+        android:name="com.besirkaraoglu.rickandmorty.presentation.ui.characterdetail.CharacterDetailFragment"
         android:label="fragment_character_detail"
         tools:layout="@layout/fragment_character_detail" >
         <argument
-            android:name="Character"
-            app:argType="com.besirkaraoglu.rickandmorty.data.remote.model.characters.Character" />
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>
